@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react"
 const Search = () => {
   const [term, setTerm] = useState("")
 
+  console.log("I run with every render")
+
   useEffect(() => {
-    console.log("asdfgkl")
-  }, [])
+    console.log("I run at initial render and after every render")
+  }, [term])
 
   return (
     <div>
