@@ -7,45 +7,51 @@ import Dropdown from "./components/Dropdown"
 const items = [
   {
     title: "What is React?",
-    content: "React is a FrontEnd JavaScript Library",
+    content: "React is a FrontEnd JavaScript Library"
   },
 
   {
     title: "Why use React?",
-    content: "React is the favorite JS Library used by JS Developers",
+    content: "React is the favorite JS Library used by JS Developers"
   },
   {
     title: "How do you use React?",
-    content: "You use React by creating components",
-  },
+    content: "You use React by creating components"
+  }
 ]
 
 // Dropdown Widget Data
 const options = [
   {
     label: "The Color Red",
-    value: "red",
+    value: "red"
   },
   {
     label: "The Color Green",
-    value: "green",
+    value: "green"
   },
   {
     label: "A Shade of Blue",
-    value: "blue",
-  },
+    value: "blue"
+  }
 ]
 
 const App = () => {
   const [selected, setSelected] = useState(options[0])
+  const [showDropdown, setShowdropdown] = useState(true)
 
   return (
     <div>
-      <Dropdown
-        selected={selected}
-        onSelectedChange={setSelected}
-        options={options}
-      />
+      <button onClick={() => setShowdropdown(!showDropdown)}>
+        Toggle Dropdown
+      </button>
+      {showDropdown ? (
+        <Dropdown
+          selected={selected}
+          onSelectedChange={setSelected}
+          options={options}
+        />
+      ) : null}
     </div>
   )
 }
